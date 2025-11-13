@@ -6,9 +6,45 @@ round_corner = 15;
 //color("green")
 //cube([129, 129, 1], center = true);
 
-frame();
+difference(){
+    nozzle_kit();
+    translate([0,0,120])
+    cylinder(d=25-4, h=15, center = true);
+}
 
-module frame() {
+
+module nozzle_kit() {
+    difference() {
+        nozzle();
+        translate([0,0,-1])
+        scale([0.95, 0.95, 1])
+        color("red")
+        nozzle();
+    }
+}
+module nozzle(){
+    hull() {
+        frame_square();
+        translate([0, 0, 120])
+        frame_ring();
+    }
+}
+
+//hull() {
+//    frame_square();
+//    translate([0, 0, 120])
+//    cylinder(d=25, h=1, center = true);
+//}
+
+module frame_ring() {
+    difference() {
+        cylinder(d=25, h=1, center = true);
+        color("red")
+        cylinder(d=25-6, h=6, center = true);
+    }
+}
+
+module frame_square() {
     difference() {
         square_plate();
         translate([0, 0, 1])
@@ -48,10 +84,7 @@ module square_plate(){
 //    circle(25);
 ////}
 
-//hull() {
-//cube([129, 129, 1], center = true);
-//translate([0, 0, 120])
-//cylinder(d=25, h=1, center = true);
-//}
+
+
 
 
