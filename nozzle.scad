@@ -1,18 +1,7 @@
-    echo("Работа Касимова Василя");
 $fn=64;
 round_corner = 15;
 
-//translate([0, 0, 10])
-//color("green")
-//cube([129, 129, 1], center = true);
-
-difference(){
-    nozzle_kit();
-    translate([0,0,120])
-    cylinder(d=25-4, h=15, center = true);
-}
-
-
+nozzle_kit();
 module nozzle_kit() {
     difference() {
         nozzle();
